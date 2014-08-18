@@ -1,0 +1,22 @@
+<beanDescriptor>
+	<line>
+		<property name='nome' size='20' uppercase='true' />
+	</line>
+	<line>
+		<property name='raca' label='Raça' colspan='3'
+			comboModelClass='org.swingBean.example.comboloading.RacaComboBoxModel' />
+		<property name='numeroCanil'/>
+	</line>
+	<line>
+		<property name='dataDeNascimento' format='dd/MM/yyyy'/>
+		<property name='temPedigree' dlu='55'/>
+	</line>
+	<line>
+		<property name='origem' comboModelMethod='getCidades'
+			comboModelClass='org.swingBean.example.comboloading.CidadesProvider' />
+		<property name='criador' comboModelMethod='getEmpresas' parameter='CRIADOR'
+			comboModelClass='org.swingBean.example.comboloading.EmpresasProvider'/>
+		<property name='cor' dependentProperty='raca'
+			comboModelClass='org.swingBean.example.comboloading.CorCachorroProvider'/>
+	</line>
+</beanDescriptor>

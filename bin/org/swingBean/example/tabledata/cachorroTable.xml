@@ -1,0 +1,8 @@
+<beanDescriptor>
+	<line>
+		<property name='nome' />
+		<property name='raca' comboList='Yorkshire;Beagle;Basset;Poodle'/>
+		<property name='dataDeNascimento'/>
+		<property name='temPedigree'/>
+	</line>
+</beanDescriptor>

@@ -1,0 +1,4 @@
+<descriptors>
+	<descriptor name='FuncionarioForm' class='org.swingBean.visualTest.Funcionario' file='FuncionarioForm.xml'/>
+	<descriptor name='FuncionarioTable' class='org.swingBean.visualTest.Funcionario' file='FuncionarioTable.xml' type='table'/>
+</descriptors>

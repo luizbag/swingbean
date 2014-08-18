@@ -1,0 +1,40 @@
+<HTML><HEAD>
+	<TITLE>Trabalhando com formulários</TITLE>
+	<META NAME="AUTHOR" CONTENT="">
+	<META NAME="GENERATOR" CONTENT="HelpScribble 6.3.2">
+</HEAD><BODY>
+<P><FONT FACE="Arial, helvetica, sans-serif" SIZE="2">
+<A HREF="cnt.htm" TARGET="cnt">Contents</A>
+ - <A HREF="idx.htm" TARGET="cnt">Index</A>
+</FONT><HR></P>
+<FONT FACE="Arial, helvetica, sans-serif" COLOR="#0000FF" SIZE="5"><B>
+Trabalhando com formulários<BR>
+<BR>
+</FONT></B><FONT FACE="Arial, helvetica, sans-serif" SIZE="2">Para criar um formulário basta criar um JBeanPanel passando a classe para a qual o cadastro está sendo feito. Um exemplo do código é mosrado abaixo:<BR>
+<BR>
+</FONT><FONT FACE="Courier New, courier, typewriter, monospace" SIZE="2">JBeanPanel&lt;Funcionario&gt; panel = new JBeanPanel&lt;Funcionario&gt;(Funcionario.class);<BR>
+<BR>
+</FONT><FONT FACE="Arial, helvetica, sans-serif" SIZE="2">Neste caso será criado um panel com os campos do formulário referentes às variáveis do objeto, um embaixo do outro e com o título igual ao título da classe. <BR>
+<BR>
+Para alterar o título deve ser utilizado um outro construtor que recebe uma String adicional como parâmetro. Se o desejado for que o formulário não tenha borda ou título, deve ser passado um valor nulo para este parâmetro.<BR>
+<BR>
+</FONT><FONT FACE="Courier New, courier, typewriter, monospace" SIZE="2">JBeanPanel&lt;Funcionario&gt; panel = new JBeanPanel&lt;Funcionario&gt;(Funcionario.class, "Titulo do Formulario");<BR>
+<BR>
+</FONT><FONT FACE="Arial, helvetica, sans-serif" SIZE="2">Um outro tipo de alteração que pode ser feita é a customização da posição dos campos e do tipo dos campos. Para isto será utilizada uma classe do tipo FieldDescriptor, que felizmente pode ser construída a partir de um arquivo XML. Para construir o descritor é utilizada a classe XMLDescriptorFactory. Abaixo é mostrado um exemplo de como um JBeanPanel pode ser construído desta forma. <BR>
+<BR>
+</FONT><FONT FACE="Courier New, courier, typewriter, monospace" SIZE="2">GenericFieldDescriptor descriptor = XMLDescriptorFactory.getFieldDescriptor(Funcionario.class, new File("FuncionarioForm.xml"));<BR>
+JBeanPanel&lt;Funcionario&gt; panel = new JBeanPanel&lt;Funcionario&gt;(Funcionario.class, descriptor);<BR>
+<BR>
+</FONT><FONT FACE="Arial, helvetica, sans-serif" SIZE="2">O </FONT><A HREF="hs40.htm"><FONT FACE="Arial, helvetica, sans-serif" SIZE="2">formato do arquivo XML</FONT></A><FONT FACE="Arial, helvetica, sans-serif" COLOR="#800000" SIZE="2"> </FONT><FONT FACE="Arial, helvetica, sans-serif" SIZE="2">será descrito nos próximos tópicos. A inserção do XML pode ser feita através de um InputStream, de uma String ou de um File.<BR>
+<BR>
+Para que os campos de um formulários sejam preenchidos com as informações de um objeto deve ser utilizado o seguinte método:<BR>
+<BR>
+</FONT><FONT FACE="Courier New, courier, typewriter, monospace" SIZE="2">panel.setBean(funcionario);<BR>
+<BR>
+</FONT><FONT FACE="Arial, helvetica, sans-serif" SIZE="2">E para que o objeto seja preenchido com as informações dos campos deve ser utilizado o método abaixo:<BR>
+<BR>
+</FONT><FONT FACE="Courier New, courier, typewriter, monospace" SIZE="2">panel.populateBean(funcionario);<BR>
+<BR>
+&nbsp;
+</FONT>
+</BODY></HTML>

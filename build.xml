@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>   
+<project name="Jar Generator" default="jar_generator">
+	<target name="jar_generator" depends="compile,packadge,zipdistribution"/>
+	<target name="compile" description="Compiling files">
+		<javac destdir="bin" srcdir="src">
+			<classpath>
+			 	<fileset dir=".">
+			 		<include name="lib/forms-1.0.5.jar"/>
+			 		<include name="lib/jcalendar.jar"/>
+			 		<include name="lib/validation-1.0.jar"/>
+			 	</fileset>
+			</classpath>	
+		</javac>
+	</target>
+	<target name="packadge" description="RelatorioAcheUtils.jar">
+		<jar destfile="swingbean.jar">
+			<zipfileset dir="bin" includes="org/swingBean/actions/*.class"/>
+			<zipfileset dir="bin" includes="org/swingBean/binding/*.class"/>
+			<zipfileset dir="bin" includes="org/swingBean/descriptor/*.class"/>
+			<zipfileset dir="bin" includes="org/swingBean/descriptor/look/*.class"/>
+			<zipfileset dir="bin" includes="org/swingBean/descriptor/composite/*"/>
+			<zipfileset dir="bin" includes="org/swingBean/descriptor/validator/*.class"/>
+			<zipfileset dir="bin" includes="org/swingBean/exception/*.class"/>
+			<zipfileset dir="bin" includes="org/swingBean/gui/*.class"/>
+			<zipfileset dir="bin" includes="org/swingBean/gui/custom/checkboxlist/*.class"/>
+			<zipfileset dir="bin" includes="org/swingBean/gui/custom/imagefield/*.class"/>
+			<zipfileset dir="bin" includes="org/swingBean/gui/custom/treetable/*.class"/>
+			<zipfileset dir="bin" includes="org/swingBean/gui/custom/twoLists/*.class"/>
+			<zipfileset dir="bin" includes="org/swingBean/gui/wrappers/*.class"/>
+			<zipfileset dir="bin" includes="org/swingBean/util/*.class"/>
+			<zipfileset dir="bin" includes="org/swingBean/util/cache/*.class"/>
+			<zipfileset dir="bin" includes="*.png"/>
+		</jar>
+	</target>
+	<target name="zipdistribution" description="Create distribution file">
+		<zip destfile="SwingBean.zip" basedir="." excludes="*.zip, **/CVS/*.*, bin/**" >
+		</zip>
+	</target>
+</project>

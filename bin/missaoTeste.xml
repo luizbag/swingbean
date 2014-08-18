@@ -1,0 +1,8 @@
+<beanDescriptor>
+	<line>
+		<property name='tree' type='TREE' label='Cidade' classifyBy='pais;estado' rootName='Paises'/>
+		<property name='nome'/>
+		<property name='populacao'/>
+		<property name='PIB'/>
+	</line>
+</beanDescriptor>

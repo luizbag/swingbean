@@ -1,0 +1,7 @@
+<beanDescriptor>
+	<line>
+		<property name='tree' type='TREE' label='Unidades' idProperty='nome' parentProperty='superior' rootName='Unidades' columnSize='200'/>
+		<property name='tipo' comboList='Gerencia;Central de vendas;Posto de vendas'/>
+		<property name='localidade'/>
+	</line>
+</beanDescriptor>   

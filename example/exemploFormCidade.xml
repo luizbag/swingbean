@@ -1,0 +1,11 @@
+<beanDescriptor>
+	<line>
+		<property name='pais' comboList='EUA;Brasil;Canadá' />
+		<property name='estado' />
+	</line>
+	<line>
+		<property name='nome'/>
+		<property name='populacao' />
+		<property name='PIB' />
+	</line>   
+</beanDescriptor>

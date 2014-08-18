@@ -1,0 +1,12 @@
+<beanDescriptor>
+	<line>
+		<property name='nome' size='30' readOnly='true' columnSize='70' />
+		<property name='idade'  min='10' max='100' />
+		<property name='dataDeNascimento'/>
+		<property name='sexo' comboList='Masculino;Feminino'/>
+		<property name='estadoCivil' comboModelClass='org.swingBean.visualTest.SexoToEstadoCivil' dependentProperty='sexo'/>
+		<property name='profissao' comboModelMethod='getProfissoes' comboModelClass='org.swingBean.visualTest.ProfissoesComboProvider' columnSize='150'/>
+		<property name='participaDoSindicato'/>
+		<property name='corFavorita'/>
+	</line>
+</beanDescriptor>

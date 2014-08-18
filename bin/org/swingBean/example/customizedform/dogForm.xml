@@ -1,0 +1,14 @@
+<beanDescriptor>
+   <line>
+      <property name='name' size='20' uppercase='true' />
+   </line>
+   <line>
+      <property name='race' label='Race' comboList='Yorkshire;Beagle;Basset;Poodle' colspan='3' />
+      <property name='kennelNumber' />
+      <property name='phone' mask='(##)####-####' colspan='2' />
+   </line>
+   <line>
+      <property name='birthDate' format='dd/MM/yyyy' />
+      <property name='hasPedigree' dlu='55' />
+   </line>
+</beanDescriptor>

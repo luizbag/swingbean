@@ -1,0 +1,15 @@
+<beanDescriptor>
+	<line>
+		<property name='nome' size='20' uppercase='true' />
+	</line>
+	<line>
+		<property name='raca' label='Raça'
+			comboList='Yorkshire;Beagle;Basset;Poodle' colspan='3' />
+		<property name='numeroCanil' />
+		<property name='telefone' mask='(##)####-####' colspan='2' />
+	</line>
+	<line>
+		<property name='dataDeNascimento' format='dd/MM/yyyy' />
+		<property name='temPedigree' dlu='55' />
+	</line>
+</beanDescriptor>

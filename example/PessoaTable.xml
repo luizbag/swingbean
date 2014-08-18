@@ -1,0 +1,7 @@
+<beanDescriptor>
+	<line>
+		<property name='nome'/>
+		<property name='sobrenome'/>
+		<property name='idade'/>
+	</line>
+</beanDescriptor>

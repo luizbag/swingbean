@@ -1,0 +1,33 @@
+<beanDescriptor>
+	<line>
+		<property name='nome' uppercase='true' size='30' minSize='5' colspan='5' mandatory='true' />
+		<property name='idade'/>
+		<property name='corFavorita' colspan='2' />
+	</line>
+	<line>
+		<property name='participaDoSindicato' />
+		<property name='info.participaDoClube' />
+	</line>
+	<line>
+		<property name='dataDeNascimento' />
+		<property name='profissao' comboModelMethod='getProfissoes' comboModelClass='org.swingBean.visualTest.ProfissoesComboProvider' colspan='3' threadLoading="false" mandatory="true" />
+	</line>
+	<line>
+	    <property name='info.CPF' pattern='\d{3}\.\d{3}\.\d{3}-\d{2}' formatExample='999.999.999-99' colspan='2' customValidator='org.swingBean.visualTest.CPFValidator' mask='###.###.###-##'/>
+		<property name='sexo' comboList='Masculino;Feminino' mandatory='true' />
+		<property name='estadoCivil' comboModelClass='org.swingBean.visualTest.SexoToEstadoCivil' dependentProperty='sexo'/>
+	</line>
+	<line>
+		<property name='remuneracao' label='Remuneração' max='10000.00' />
+		<property name='info.login' colspan='2' size='10' />
+		<property name='info.senha' type='PASSWORD' colspan='2'/>
+	</line>
+	<line>
+		<property name='comentarios' label='Observações' type='LARGE_TEXT' />
+	</line>
+	<line>
+		<property name='departamentos' maxSelected='3' minSelected='1' listModelClass='org.swingBean.visualTest.DepartamentoListModel' listModelMethod='listDepartamentos' threadLoading="false"/>
+		<property name='projetos' type='CHECKBOX_LIST' maxSelected='2' list='Reconstrução;Filmes do Pooh;Site da Empresa;Campanha de Marketing;Churrasco;Comissão de Segurança;Brincadeiras Diárias' />
+		<property name='foto' type='IMAGE' showResolution='250x250' saveResolution='250x250' />
+	</line>
+</beanDescriptor>

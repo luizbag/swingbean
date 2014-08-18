@@ -1,0 +1,55 @@
+<HTML><HEAD>
+	<TITLE>Usando Cache</TITLE>
+	<META NAME="AUTHOR" CONTENT="">
+	<META NAME="GENERATOR" CONTENT="HelpScribble 6.3.2">
+</HEAD><BODY>
+<P><FONT FACE="Arial, helvetica, sans-serif" SIZE="2">
+<A HREF="cnt.htm" TARGET="cnt">Contents</A>
+ - <A HREF="idx.htm" TARGET="cnt">Index</A>
+</FONT><HR></P>
+<FONT FACE="Arial, helvetica, sans-serif" COLOR="#0000FF" SIZE="5"><B>
+Usando Cache<BR>
+<BR>
+</FONT></B><FONT FACE="Arial, helvetica, sans-serif" SIZE="2">O framework oferece três tipos de cache: um que nunca expira, um que tem um tempo para expirar e outro que verifica em um método se as informações foram modificadas<BR>
+<BR>
+</FONT><B><FONT FACE="Arial, helvetica, sans-serif" COLOR="#0000FF" SIZE="3">BasicCache<BR>
+<BR>
+</FONT></B><FONT FACE="Arial, helvetica, sans-serif" SIZE="2">Este tipo de cache nunca expira. Primeiramente os métodos para terem cache devem estar em uma interface. Os métodos que devem ser cacheados devem possuir a anotação @Cache e os que devem zerar o cache devem possuir a anotação @InvalidateCache. Os métodos que não devem possuir cache e nem invalidar o cache devem ficar sem anotações.<BR>
+<BR>
+Abaixo segue o exemplo de uma interface com anotações para ser configurada pelo cache. Ao chamar os dois primeiros métodos, o resultado será incluido no cache e em uma chamada seguinte este método não será executado e o resultado cacheado será retornado. Os três ultimos métodos, pelo fato de ao serem chamados poderem influenciar no resultado dos métodos com cache, irão excluir os resultados do cache deixando o mesmo vazio.<BR>
+<BR>
+&nbsp;</FONT><FONT FACE="Courier New, courier, typewriter, monospace" SIZE="2">public interface DAO{<BR>
+&nbsp;&nbsp;&nbsp;@Cache public Object getById(String ID);<BR>
+&nbsp;&nbsp;&nbsp;@Cache public List getByParams(String[] params);<BR>
+&nbsp;&nbsp;&nbsp;@InvalidateCache public void insert(Object obj);<BR>
+&nbsp;&nbsp;&nbsp;@InvalidateCache public void update(Object obj);<BR>
+&nbsp;&nbsp;&nbsp;@InvalidateCache public void delete(String ID);<BR>
+&nbsp;}<BR>
+<BR>
+</FONT><FONT FACE="Arial, helvetica, sans-serif" SIZE="2">Para que o cache funcione é importante que os métodos sejam chamados na mesma instância. Para isto é recomendado que o objeto implemente o padrão de projeto Singleton. No momento de criar a instância do objeto, deve ser criado o proxy dinâmico para "instalar" o cache no objeto. Abaixo temos um exemplo de como isto funcionaria:<BR>
+<BR>
+&nbsp;</FONT><FONT FACE="Courier New, courier, typewriter, monospace" SIZE="2">public class ImplDAO implements DAO{<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;private static DAO instance;<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;public static DAO getInstance(){<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(instance == null)<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instance = (DAO) BasicCache.createProxy(new ImplDAO());<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return instance;<BR>
+&nbsp;&nbsp;&nbsp;}<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;//Implementação dos métodos da interface<BR>
+<BR>
+&nbsp;}<BR>
+<BR>
+</FONT><B><FONT FACE="Arial, helvetica, sans-serif" COLOR="#0000FF" SIZE="3">TimedCache<BR>
+<BR>
+</FONT></B><FONT FACE="Arial, helvetica, sans-serif" SIZE="2">Este tipo de cache possui um tempo desde a primeira chamada para expirar e esvaziar o cache. O tempo default é de 10 min, mas pode ser passado no construtor o tempo desejado em milisegundos. Segue abaixo o exemplo para configurar o cache para exirar em 5 minutos:<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;</FONT><FONT FACE="Courier New, courier, typewriter, monospace" SIZE="2">instance = (DAO) TimedCache.createProxy(new ImplDAO(),5*60*1000);<BR>
+<BR>
+</FONT><B><FONT FACE="Arial, helvetica, sans-serif" COLOR="#0000FF" SIZE="3">VerifyCache<BR>
+<BR>
+</FONT></B><FONT FACE="Arial, helvetica, sans-serif" SIZE="2">Este tipo de cache irá funcionar para objetos que implementarem a interface CacheVerifyer. Esta interface possui um único método </FONT><FONT FACE="Courier New, courier, typewriter, monospace" SIZE="2">public long getInformationTimeMillis() </FONT><FONT FACE="Arial, helvetica, sans-serif" SIZE="2">que deve retornar a hora da última mudança. Caso o valor seja igual o do último método executado, será retornado o valor do cache. Caso o valor seja diferente, o método será executado e armazenado no cache. A criação do objeto proxy é semelhante a mostrada para o BasicCache.
+</FONT>
+</BODY></HTML>

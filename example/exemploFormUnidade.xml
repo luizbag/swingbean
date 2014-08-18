@@ -1,0 +1,10 @@
+<beanDescriptor>
+	<line>
+		<property name='nome'/>
+		<property name='superior'/>
+	</line>
+	<line>
+		<property name='tipo' comboList='Gerencia;Central de vendas;Posto de vendas'/>
+		<property name='localidade'/>
+	</line>   
+</beanDescriptor>

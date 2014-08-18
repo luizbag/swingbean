@@ -1,0 +1,27 @@
+<HTML><HEAD>
+	<TITLE>Ordenando e Filtrando uma Tabela</TITLE>
+	<META NAME="AUTHOR" CONTENT="">
+	<META NAME="GENERATOR" CONTENT="HelpScribble 6.3.2">
+</HEAD><BODY>
+<P><FONT FACE="Arial, helvetica, sans-serif" SIZE="2">
+<A HREF="cnt.htm" TARGET="cnt">Contents</A>
+ - <A HREF="idx.htm" TARGET="cnt">Index</A>
+</FONT><HR></P>
+<FONT FACE="Arial, helvetica, sans-serif" COLOR="#0000FF" SIZE="5"><B>
+Ordenando e Filtrando uma Tabela<BR>
+<BR>
+</FONT></B><FONT FACE="Arial, helvetica, sans-serif" SIZE="2">Abaixo são descritas funções da classe BeanTableModel que auxiliam na organização dos dados. No package org.swingBean.visualTest.tablefilter do código fonte existe um exemplo que mostra uma impleentação destas funcionalidades.<BR>
+<BR>
+</FONT><B><FONT FACE="Arial, helvetica, sans-serif" COLOR="#0000FF" SIZE="3">Ordenação<BR>
+<BR>
+</FONT></B><FONT FACE="Arial, helvetica, sans-serif" SIZE="2">Os dados da tabela podem ser ordenados facilmente utilizando a função orderByProperty da classe BeanTableModel que recebe como parâmetro uma String que é a propriedade pela qual os beans devem ser ordenados. Esta propriedade deve implementar a interface Comparable para acontecer a ordenação. Depois de chamada a função, qualquer valor inserido ou alterado irá causar uma reordenação dos objetos.<BR>
+<BR>
+</FONT><B><FONT FACE="Arial, helvetica, sans-serif" COLOR="#0000FF" SIZE="3">Busca<BR>
+<BR>
+</FONT></B><FONT FACE="Arial, helvetica, sans-serif" SIZE="2">A classe BeanTableModel também facilita a busca de valores dentro de uma tabela. Através dos métodos getIndexStartedBy (que retorna o indice do primeiro objeto cuja propriedade especificada <U>começar </U>com a String) e getIndexContains (que retorna o indice do primeiro objeto cuja propriedade especificada <U>conter </U>a String). No caso da propriedade não ser do tipo String, o método toString será utilizado para a comparação.<BR>
+<BR>
+</FONT><B><FONT FACE="Arial, helvetica, sans-serif" COLOR="#0000FF" SIZE="3">Filtragem<BR>
+<BR>
+</FONT></B><FONT FACE="Arial, helvetica, sans-serif" SIZE="2">Os dados da tabela também podem ser filtrados utilizando os métodos filterStartedBy e filterContains da classe BeanTableModel, com funcionamento análogo ao acima. Se caso mais de uma filtragem for realizada, esta será feita em relação a listagem completa. Quais indices obtidos são em relação a lista filtrada.
+</FONT>
+</BODY></HTML>

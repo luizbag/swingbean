@@ -1,0 +1,5 @@
+<beanDescriptor>
+	<line>
+		<property name='tree' type='TREE' childrenProperty='produtos' rootName='Produtos'/>
+	</line>
+</beanDescriptor>

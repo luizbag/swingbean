@@ -1,0 +1,8 @@
+<beanDescriptor>
+	<line>
+		<property name='nome' />
+		<property name='raca'/>
+		<property name='dataDeNascimento'/>
+		<property name='temPedigree'/>
+	</line>
+</beanDescriptor>

@@ -1,0 +1,36 @@
+; 
+; 
+
+; This help file was created with HelpScribble 6.3.2
+; Registered to: CTA
+
+; HelpScribble is copyright (c) 1996-2002  Jan Goyvaerts
+; Visit http://www.helpscribble.com/ for more information
+
+
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=SwingBean.chm
+Title=
+Default topic=html\hs10.htm
+Display compile progress=No
+Index file=SwingBean.hhk
+Language=
+
+[FILES]
+html\hs10.htm
+html\hs20.htm
+html\hs30.htm
+html\hs40.htm
+html\hs50.htm
+html\hs60.htm
+html\hs70.htm
+
+[MAP]
+#define html\hs10 10
+#define html\hs20 20
+#define html\hs30 30
+#define html\hs40 40
+#define html\hs50 50
+#define html\hs60 60
+#define html\hs70 70
